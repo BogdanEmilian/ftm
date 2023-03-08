@@ -19,6 +19,7 @@ Each player will have the general data about them:
 - height (in cm)
 - weight (in kg)
 - value (amount to be paid by other teams)
+- salary
 - number of appearances
 
 
@@ -53,7 +54,8 @@ Specific data for each player:
 ## Game list:
 Each game will have:
 - opposing team name
-- score
+- goals scored
+- goals received
 - date
 - possession
 - corners
