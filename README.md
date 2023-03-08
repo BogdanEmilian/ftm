@@ -2,22 +2,44 @@
 
 - **Dashboard**
 - **List of players**
-- **Last games**
 - **Training performance**
+- **Player performance**
+- **Last games**
 
 
 ## Dashboard
-
 Last **X** games statistics.
 
+
 ## List of players
-Each player will have:
+Each player will have the general data about them:
 - name
 - age
 - position
-- height
-- weight
-- value
+- height (in cm)
+- weight (in kg)
+- value (amount to be paid by other teams)
+- number of appearances
+
+
+## Training tab (a history of the last month of training):
+Overall data of the team:
+- passes to goals
+- speed maintained
+- distance covered
+- goalkeeper parries
+- long shots
+- fast shots
+
+
+## Player performance
+Specific data for each player:
+- free kicks shot
+- free kicks scored
+- training distance covered
+- training speed
+- training successful goals
+- training successful passes
 - injured
 - number of goals
 - yellow cards
@@ -26,17 +48,11 @@ Each player will have:
 - passing accuracy
 - fouls committed
 - goal accuracy
-- number of appearances
-- free kicks shot
-- free kicks scored
-- training distance covered
-- training speed
-- training successful goals
-- training successful passes
+
 
 ## Game list:
 Each game will have:
-- opposing team
+- opposing team name
 - score
 - date
 - possession
@@ -46,15 +62,12 @@ Each game will have:
 - time (in minutes, plus overtime)
 - misses
 
-## Training tab (a history of the last month of training):
-Overall data of team main members (select the team members):
-- passes
-- speed
-- distance covered
-- goalkeeper parries
-- goals scored
 
 ## Touch-ups
 - CSS for the UI in JavaFX
 - dashboard is the last **10** or **X** games statistics
 - additional function: find best performing team setup
+- team members should have a randomly generated name
+- random data for placeholders should be included when creating a new entry
+- get optimal team comp
+- adding/removing data would pop-up an external window
