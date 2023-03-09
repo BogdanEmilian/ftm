@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.kordamp.ikonli.javafx.FontIcon?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.controllers.MatchHistoryController">
+    <children>
+        <AnchorPane prefHeight="70.0" prefWidth="1200.0" style="-fx-background-color: #1b5594;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <children>
+                <ImageView fx:id="menu" fitHeight="60.0" fitWidth="60.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="5.0">
+                    <image>
+                        <Image url="@../images/menu.png" />
+                    </image></ImageView>
+            <Label layoutX="85.0" layoutY="14.0" text="Match history" textFill="WHITE" AnchorPane.leftAnchor="85.0">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            </children></AnchorPane>
+        <AnchorPane layoutY="70.0" prefHeight="630.0" prefWidth="60.0" style="-fx-background-color: #c2c2c2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <children>
+                <VBox prefHeight="630.0" prefWidth="60.0">
+                    <children>
+                        <FontIcon iconLiteral="bxs-dashboard" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bx-user" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bxs-user-detail" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bx-history" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
+                            <VBox.margin>
+                                <Insets top="150.0" />
+                            </VBox.margin></FontIcon>
+                    </children>
+                </VBox>
+            </children></AnchorPane>
+      <HBox layoutX="60.0" layoutY="85.0" prefHeight="250.0" prefWidth="900.0">
+         <children>
+            <VBox prefHeight="300.0" prefWidth="400.0">
+               <children>
+                  <PieChart fx:id="scorePieChart" title="Score overall" />
+               </children>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="300.0" prefWidth="400.0">
+               <children>
+                  <PieChart fx:id="possessionPieChart" title="Possession overall" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <HBox layoutX="60.0" layoutY="385.0" prefHeight="300.0" prefWidth="900.0">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam1" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score1" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date1" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession1" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time1" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties1" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks1" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses1" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam2" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score2" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date2" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession2" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time2" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties2" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks2" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses2" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam3" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score3" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date3" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession3" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time3" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties3" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks3" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses3" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam4" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score4" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date4" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession4" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time4" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties4" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks4" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses4" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam5" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score5" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date5" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession5" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time5" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties5" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks5" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses5" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam6" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score6" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date6" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession6" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time6" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties6" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks6" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses6" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="300.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam7" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score7" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date7" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession7" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time7" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties7" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks7" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses7" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam8" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score8" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date8" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession8" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time8" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties8" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks8" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses8" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="enemyTeam9" prefHeight="30.0" text="Team 1" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="score9" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="0 - 0" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="date9" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="10.01.22" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="possession9" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="34%" wrapText="true">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="30.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label fx:id="time9" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="120" wrapText="true">
+                                 <font>
+                                    <Font name="System Italic" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <Label fx:id="penalties9" prefHeight="30.0" text="25" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="freeKicks9" layoutX="10.0" layoutY="10.0" prefHeight="30.0" text="20" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="misses9" layoutX="10.0" layoutY="40.0" prefHeight="30.0" text="30" wrapText="true">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Label layoutX="410.0" layoutY="335.0" prefHeight="45.0" prefWidth="210.0" text="Match History" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="350.0">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <AnchorPane fx:id="panel1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+        <AnchorPane layoutX="10.0" layoutY="80.0" prefHeight="630.0" prefWidth="60.0" style="-fx-background-color: #c2c2c2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0">
+            <children>
+                <VBox prefHeight="630.0" prefWidth="60.0">
+                    <children>
+                        <FontIcon iconLiteral="bxs-dashboard" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bx-user" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bxs-user-detail" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bx-history" iconSize="60" wrappingWidth="13.0" />
+                        <FontIcon iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
+                            <VBox.margin>
+                                <Insets top="150.0" />
+                            </VBox.margin>
+                        </FontIcon>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="panel2" layoutX="70.0" layoutY="80.0" prefHeight="630.0" prefWidth="240.0" style="-fx-background-color: #c2c2c2;" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="70.0">
+            <children>
+                <VBox prefHeight="630.0" prefWidth="240.0">
+                    <children>
+                        <JFXButton alignment="BASELINE_LEFT" prefHeight="60.0" prefWidth="245.0" text="Dashboard">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="245.0" text="Players">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="130.0" prefHeight="60.0" prefWidth="245.0" text="Player performance">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="190.0" prefHeight="60.0" prefWidth="245.0" text="Game history">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="250.0" prefHeight="60.0" prefWidth="245.0" text="Export Data">
+                            <font>
+                                <Font name="System Bold" size="17.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets top="150.0" />
+                            </VBox.margin>
+                        </JFXButton>
+                    </children>
+                </VBox>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>
