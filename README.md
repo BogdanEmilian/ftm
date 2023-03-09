@@ -2,7 +2,6 @@
 
 - **Dashboard**
 - **List of players**
-- **Training performance**
 - **Player performance**
 - **Last games**
 
@@ -27,16 +26,6 @@ Each player will have the general data about them:
 - value (amount to be paid by other teams)
 - salary
 - number of appearances
-
-
-## Training tab (a history of the last month of training):
-Overall data of the team:
-- passes to goals
-- speed maintained
-- distance covered
-- goalkeeper parries
-- long shots
-- fast shots
 
 
 ## Player performance

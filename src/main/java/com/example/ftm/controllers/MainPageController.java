@@ -34,7 +34,7 @@ public class MainPageController implements Initializable {
         translateTransition.setByX(-700);
         translateTransition.play();
 
-        menu.setOnMouseClicked(mouseEvent -> {
+        menu.setOnMouseClicked(event -> {
             panel1.setVisible(true);
             FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(fadeDuration), panel1);
             fadeTransition1.setFromValue(0);
