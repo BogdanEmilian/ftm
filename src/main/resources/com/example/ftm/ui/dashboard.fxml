@@ -46,7 +46,6 @@
                     <children>
                         <FontIcon iconLiteral="bxs-dashboard" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bx-user" iconSize="60" wrappingWidth="13.0" />
-                        <FontIcon iconLiteral="bx-time" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bxs-user-detail" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bx-history" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
@@ -162,7 +161,6 @@
                     <children>
                         <FontIcon iconLiteral="bxs-dashboard" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bx-user" iconSize="60" wrappingWidth="13.0" />
-                        <FontIcon iconLiteral="bx-time" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bxs-user-detail" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bx-history" iconSize="60" wrappingWidth="13.0" />
                         <FontIcon iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
@@ -184,11 +182,6 @@
                             </font>
                         </JFXButton>
                         <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="60.0" prefWidth="245.0" text="Players">
-                            <font>
-                                <Font name="System Bold" size="17.0" />
-                            </font>
-                        </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="70.0" prefHeight="60.0" prefWidth="245.0" text="Training performance">
                             <font>
                                 <Font name="System Bold" size="17.0" />
                             </font>

@@ -2,38 +2,30 @@ package com.example.ftm.controllers;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.util.Duration;
+import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
-import com.jfoenix.controls.JFXButton;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class PlayerListController implements Initializable {
-
-    @FXML
-    private JFXButton addButton;
-
-    @FXML
-    private JFXButton editButton;
+public class PlayerPerformanceController implements Initializable {
 
     @FXML
     private ImageView menu;
 
     @FXML
-    private AnchorPane panel1, panel2;
+    private AnchorPane panel1;
 
-    //TODO: refactor after JPA implementation
+    @FXML
+    private AnchorPane panel2;
+
     @FXML
     private TableView<?> playerTable;
-
-    @FXML
-    private JFXButton removeButton;
 
     @FXML
     private TextField searchTextField;
@@ -80,15 +72,11 @@ public class PlayerListController implements Initializable {
             translateTransition1.play();
         });
     }
-
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL location, ResourceBundle resources){
 
-        try{
-            menuHandler();
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
+        menuHandler();
+
     }
+
 }
