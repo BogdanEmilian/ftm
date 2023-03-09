@@ -14,8 +14,8 @@ there is an average between them and the user is required to select last 10-20-3
 Statistics included: 
 - score leads (goals scored - goals received)
 - possession
-- free kicks
-- misses
+- goal accuracy
+- last **10** games scores (red if game was lost, green if game was won): Opposing team, score, duration 
 
 ## List of players
 Each player will have the general data about them:

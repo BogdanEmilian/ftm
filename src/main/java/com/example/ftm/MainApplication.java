@@ -11,7 +11,7 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("main-menu.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ui/dashboard.fxml"));
 
         Scene scene = new Scene(root);
 
