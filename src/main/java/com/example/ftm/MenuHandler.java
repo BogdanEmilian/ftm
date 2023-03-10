@@ -1,36 +1,28 @@
-package com.example.ftm.controllers;
+package com.example.ftm;
 
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
-import javafx.fxml.Initializable;
-import javafx.util.Duration;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class PlayerPerformanceController implements Initializable {
+public class MenuHandler {
 
     @FXML
-    private ImageView menu;
+    AnchorPane panel1, panel2;
 
     @FXML
-    private AnchorPane panel1;
+    ImageView menu;
 
-    @FXML
-    private AnchorPane panel2;
+    public MenuHandler(AnchorPane panel1, AnchorPane panel2, ImageView menu){
+        this.panel1 = panel1;
+        this.panel2 = panel2;
+        this.menu = menu;
+    }
 
-    @FXML
-    private TableView<?> playerTable;
-
-    @FXML
-    private TextField searchTextField;
-
-    public void menuHandler(){
+    //handle menu interaction across all application
+    public void menuInteractionHandler(){
         panel1.setVisible(false);
 
         double fadeDuration = 0.25;
@@ -72,11 +64,4 @@ public class PlayerPerformanceController implements Initializable {
             translateTransition1.play();
         });
     }
-    @Override
-    public void initialize(URL location, ResourceBundle resources){
-
-        menuHandler();
-
-    }
-
 }

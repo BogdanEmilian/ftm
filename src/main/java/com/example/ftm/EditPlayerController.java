@@ -1,4 +1,4 @@
-package com.example.ftm.controllers;
+package com.example.ftm;
 
 import com.example.ftm.enumeration.Position;
 import javafx.fxml.FXML;

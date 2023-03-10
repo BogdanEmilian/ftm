@@ -11,13 +11,17 @@ public class MainApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("ui/addPlayer.fxml"));
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("fxml/mainMenu.fxml"));
 
-        Scene scene = new Scene(root);
+            Scene scene = new Scene(root);
 
-        primaryStage.setTitle("Football team management");
-        primaryStage.setScene(scene);
-        primaryStage.show();
+            primaryStage.setTitle("Football team management");
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
