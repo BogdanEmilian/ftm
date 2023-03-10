@@ -1,19 +1,39 @@
-package com.example.ftm.controllers;
+package com.example.ftm;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class MatchHistoryController implements Initializable {
+
+    @FXML
+    private JFXButton dashboardTab;
+
+    @FXML
+    private JFXButton playersTab;
+
+    @FXML
+    private JFXButton performanceTab;
+
+    @FXML
+    private JFXButton exportTab;
 
     @FXML
     private Label date1;
@@ -246,51 +266,102 @@ public class MatchHistoryController implements Initializable {
     @FXML
     private Label time9;
 
-    public void menuHandler(){
-        panel1.setVisible(false);
+    @FXML
+    public void switchToDashboard(ActionEvent event) throws IOException {
 
-        double fadeDuration = 0.25;
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/dashboard.fxml"));
 
-        FadeTransition fadeTransition = new FadeTransition(Duration.seconds(fadeDuration), panel1);
-        fadeTransition.setFromValue(1);
-        fadeTransition.setToValue(0);
-        fadeTransition.play();
+            Parent root = (Parent) loader.load();
 
-        TranslateTransition translateTransition = new TranslateTransition(Duration.seconds(fadeDuration), panel2);
-        translateTransition.setByX(-700);
-        translateTransition.play();
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
 
-        menu.setOnMouseClicked(mouseEvent -> {
-            panel1.setVisible(true);
-            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(fadeDuration), panel1);
-            fadeTransition1.setFromValue(0);
-            fadeTransition1.setToValue(0.45);
-            fadeTransition1.play();
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
 
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(fadeDuration), panel2);
-            translateTransition1.setByX(+700);
-            translateTransition1.play();
-        });
-
-        panel1.setOnMouseClicked(event -> {
-            panel1.setVisible(true);
-            FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(fadeDuration), panel1);
-            fadeTransition1.setFromValue(0.45);
-            fadeTransition1.setToValue(0);
-            fadeTransition1.play();
-
-            fadeTransition1.setOnFinished(event1 -> {
-                panel1.setVisible(false);
-            });
-
-            TranslateTransition translateTransition1 = new TranslateTransition(Duration.seconds(fadeDuration), panel2);
-            translateTransition1.setByX(-700);
-            translateTransition1.play();
-        });
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
+    @FXML
+    public void switchToPlayers(ActionEvent event) throws IOException{
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/playerList.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void switchToPerformance(ActionEvent event) throws IOException{
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/playerPerformance.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void switchToExport(ActionEvent event) throws IOException {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/mainMenu.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources){
 
-        menuHandler();
+        MenuHandler menuHandler = new MenuHandler(panel1, panel2, menu);
+        menuHandler.menuInteractionHandler();
     }
 }

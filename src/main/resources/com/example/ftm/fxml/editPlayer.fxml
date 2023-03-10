@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="linear-grad" stylesheets="@stylesheet/addPlayerWindow.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.controllers.AddPlayerController">
+<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="linear-grad" stylesheets="@stylesheet/addPlayerWindow.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.EditPlayerController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
          <children>
@@ -117,9 +117,9 @@
                   <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
-                        <ImageView fx:id="submitIcon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fx:id="editIcon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../images/submit.png" />
+                              <Image url="@../images/edit.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -128,7 +128,7 @@
             </HBox>
          </children>
       </VBox>
-      <Label alignment="CENTER" layoutX="310.0" layoutY="14.0" prefHeight="35.0" prefWidth="180.0" text="Add a new player" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="310.0" AnchorPane.topAnchor="15.0">
+      <Label fx:id="editPlayerName" alignment="CENTER" layoutX="183.0" layoutY="14.0" prefHeight="35.0" prefWidth="434.0" text="Edit player" AnchorPane.leftAnchor="183.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
