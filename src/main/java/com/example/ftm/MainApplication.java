@@ -1,5 +1,8 @@
 package com.example.ftm;
 
+import com.example.ftm.database.PlayerActions;
+import com.example.ftm.entity.Player;
+import com.example.ftm.enumeration.Position;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +15,7 @@ public class MainApplication extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         try {
+
             Parent root = FXMLLoader.load(getClass().getResource("fxml/mainMenu.fxml"));
 
             Scene scene = new Scene(root);

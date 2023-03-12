@@ -5,6 +5,8 @@ module com.example.ftm {
     requires jakarta.persistence;
 
 
-    opens com.example.ftm to javafx.fxml;
+    opens com.example.ftm to javafx.fxml, javafx.base;
+    opens com.example.ftm.entity to javafx.base, javafx.fxml;
     exports com.example.ftm;
+    exports com.example.ftm.entity;
 }
