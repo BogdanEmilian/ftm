@@ -1,5 +1,7 @@
 package com.example.ftm;
 
+import com.example.ftm.database.PlayerActions;
+import com.example.ftm.entity.Player;
 import com.example.ftm.enumeration.Position;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,6 +16,8 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class EditPlayerController implements Initializable {
+
+    Player player = new Player();
 
     @FXML
     private TextField ageTextField;
@@ -48,8 +52,19 @@ public class EditPlayerController implements Initializable {
     public void initWindow(){
         positionChoiceBox.getItems().addAll(Arrays.asList(Position.values()));
         editPlayerName.setText("Edit player " + nameTextField.getText());
+    }
 
-        //TODO: Add JPA entity data
+    public void initData(Player player1){
+        player = player1;
+
+        //Fill in with data from DB
+        nameTextField.setText(player.getPlayerName());
+        ageTextField.setText(player.getPlayerAge().toString());
+        positionChoiceBox.setValue(player.getPlayerPosition());
+        heightTextField.setText(player.getPlayerHeight().toString());
+        weightTextField.setText(player.getPlayerWeight().toString());
+        valueTextField.setText(player.getPlayerValue().toString());
+        salaryTextField.setText(player.getPlayerSalary().toString());
     }
 
     public void handleSubmit(){

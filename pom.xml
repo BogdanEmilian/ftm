@@ -51,6 +51,18 @@
             <artifactId>hibernate-core</artifactId>
             <version>6.1.7.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.clojure</groupId>
+            <artifactId>java.jdbc</artifactId>
+            <version>0.7.12</version>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.32</version>
+        </dependency>
+
+
 
 
         <dependency>
