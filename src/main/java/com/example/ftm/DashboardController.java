@@ -166,7 +166,7 @@ public class DashboardController implements Initializable {
     public void switchToExport(ActionEvent event) throws IOException{
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/mainMenu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/pdfexport.fxml"));
 
             Parent root = (Parent) loader.load();
 
@@ -280,6 +280,7 @@ public class DashboardController implements Initializable {
         menuHandler.menuInteractionHandler();
 
         lastGamesChoice.setOnAction(event -> {
+
             try {
                 scoreGraphHandler();
                 possessionGraphHandler();

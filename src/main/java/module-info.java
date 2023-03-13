@@ -3,7 +3,7 @@ module com.example.ftm {
     requires javafx.fxml;
     requires com.jfoenix;
     requires jakarta.persistence;
-
+    requires itextpdf;
 
     opens com.example.ftm to javafx.fxml, javafx.base;
     opens com.example.ftm.entity to javafx.base, javafx.fxml;
