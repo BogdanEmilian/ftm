@@ -1,8 +1,6 @@
 package com.example.ftm.database;
 
 import com.example.ftm.entity.Game;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +11,6 @@ import java.util.List;
 
 public class GameActions {
     private static final String ADD_QUERY = "insert into games (opposingTeamName, goalsScored, goalsReceived, gameDate, possession, corners, penalties, freeKicks, gameTime, misses) values(?,?,?,?,?,?,?,?,?,?);";
-    private static final String DELETE_QUERY = "delete from games where opposingTeamName=? and gameDate=?;";
     private static final String GET_QUERY = "select * from games order by id desc limit ?;";
 
     public static void insertGame(Game game){
@@ -35,18 +32,6 @@ public class GameActions {
             st.executeUpdate();
             System.out.println("adding new game against: " + game.getOpposingTeamName());
         }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
-
-    public static void deleteGame(String opposingTeamName, String gameDate){
-        try{
-            Connection conn = DBConnect.connect();
-            PreparedStatement st = conn.prepareStatement(DELETE_QUERY);
-
-            st.setString(1, opposingTeamName);
-            st.setString(2, gameDate);
-        }catch (Exception e){
             e.printStackTrace();
         }
     }
