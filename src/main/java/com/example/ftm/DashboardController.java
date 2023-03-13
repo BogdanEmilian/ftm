@@ -1,8 +1,12 @@
 package com.example.ftm;
 
+import com.example.ftm.database.GameActions;
+import com.example.ftm.entity.Game;
 import com.jfoenix.controls.JFXButton;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import javafx.animation.FadeTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,6 +15,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.LineChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
@@ -20,6 +25,8 @@ import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
@@ -37,13 +44,13 @@ public class DashboardController implements Initializable {
     private JFXButton exportTab;
 
     @FXML
-    private LineChart<Integer, Integer> scoreLeadsGraph;
+    private LineChart<String, Integer> scoreLeadsGraph;
 
     @FXML
-    private LineChart<Integer, Double> possessionGraph;
+    private LineChart<String, Double> possessionGraph;
 
     @FXML
-    private LineChart<Integer, Double> goalAccuracyGraph;
+    private LineChart<String, Double> goalAccuracyGraph;
 
     @FXML
     private Label gameLabel1;
@@ -178,9 +185,49 @@ public class DashboardController implements Initializable {
         }
     }
 
-    public void interfaceInit(){
+    public void scoreGraphHandler() throws SQLException {
+        List<Game> gameList = GameActions.getGames(lastGamesChoice.getValue().intValue());
+
+        XYChart.Series<String, Integer> scoreChart = new XYChart.Series<>();
+        for (int i = 0; i < gameList.size(); i++) {
+            int scoreLead = Math.abs(gameList.get(i).getGoalsScored() - gameList.get(i).getGoalsReceived());
+            scoreChart.getData().add(new XYChart.Data<>(String.valueOf(i + 1), scoreLead));
+        }
+
+        scoreLeadsGraph.getData().add(scoreChart);
+    }
+
+    public void possessionGraphHandler() throws SQLException {
+        List<Game> gameList = GameActions.getGames(lastGamesChoice.getValue().intValue());
+
+        XYChart.Series<String, Double> possessionChart = new XYChart.Series<>();
+        for (int i = 0; i < gameList.size(); i++) {
+            double possession = gameList.get(i).getPossession();
+            possessionChart.getData().add(new XYChart.Data<>(String.valueOf(i + 1), possession));
+        }
+
+        possessionGraph.getData().add(possessionChart);
+    }
+
+    public void goalAccuracyGraphHandler() throws SQLException {
+        List<Game> gameList = GameActions.getGames(lastGamesChoice.getValue().intValue());
+
+        XYChart.Series<String, Double> goalAccuracyChart = new XYChart.Series<>();
+        for (int i = 0; i < gameList.size(); i++) {
+            Game game = gameList.get(i);
+            double accuracy = Double.parseDouble(game.getGoalsScored().toString()) / (Double.parseDouble(game.getGoalsScored().toString()) + Double.parseDouble(game.getMisses().toString())) * 100.0;
+            goalAccuracyChart.getData().add(new XYChart.Data<>(String.valueOf(i + 1), accuracy));
+        }
+
+        goalAccuracyGraph.getData().add(goalAccuracyChart);
+    }
+
+    public void initWindow() throws SQLException {
         //initialize choice box values with the options 10, 20, 30
         lastGamesChoice.getItems().addAll(choices);
+
+        //Set default value to 10
+        lastGamesChoice.setValue(10);
 
         //last 10 games text fields init
         gameLabel1.setText("");
@@ -194,6 +241,25 @@ public class DashboardController implements Initializable {
         gameLabel9.setText("");
         gameLabel10.setText("");
 
+        //Fetch last 10 games
+        try {
+            List<Game> gameList = GameActions.getGames(10);
+
+            gameLabel1.setText(gameList.get(0).getOpposingTeamName() + "\n" + gameList.get(0).getGoalsScored() + " - " + gameList.get(0).getGoalsReceived());
+            gameLabel2.setText(gameList.get(1).getOpposingTeamName() + "\n" + gameList.get(1).getGoalsScored() + " - " + gameList.get(1).getGoalsReceived());
+            gameLabel3.setText(gameList.get(2).getOpposingTeamName() + "\n" + gameList.get(2).getGoalsScored() + " - " + gameList.get(2).getGoalsReceived());
+            gameLabel4.setText(gameList.get(3).getOpposingTeamName() + "\n" + gameList.get(3).getGoalsScored() + " - " + gameList.get(3).getGoalsReceived());
+            gameLabel5.setText(gameList.get(4).getOpposingTeamName() + "\n" + gameList.get(4).getGoalsScored() + " - " + gameList.get(4).getGoalsReceived());
+            gameLabel6.setText(gameList.get(5).getOpposingTeamName() + "\n" + gameList.get(5).getGoalsScored() + " - " + gameList.get(5).getGoalsReceived());
+            gameLabel7.setText(gameList.get(6).getOpposingTeamName() + "\n" + gameList.get(6).getGoalsScored() + " - " + gameList.get(6).getGoalsReceived());
+            gameLabel8.setText(gameList.get(7).getOpposingTeamName() + "\n" + gameList.get(7).getGoalsScored() + " - " + gameList.get(7).getGoalsReceived());
+            gameLabel9.setText(gameList.get(8).getOpposingTeamName() + "\n" + gameList.get(8).getGoalsScored() + " - " + gameList.get(8).getGoalsReceived());
+            gameLabel10.setText(gameList.get(9).getOpposingTeamName() + "\n" + gameList.get(9).getGoalsScored() + " - " + gameList.get(9).getGoalsReceived());
+
+        }catch(Exception e){
+            System.out.println("Insufficient data!");
+        }
+
         //init graphs
         scoreLeadsGraph.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent");
         possessionGraph.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent");
@@ -205,9 +271,23 @@ public class DashboardController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
 
     try{
-        interfaceInit();
+        initWindow();
+        scoreGraphHandler();
+        possessionGraphHandler();
+        goalAccuracyGraphHandler();
+
         MenuHandler menuHandler = new MenuHandler(panel1, panel2, menu);
         menuHandler.menuInteractionHandler();
+
+        lastGamesChoice.setOnAction(event -> {
+            try {
+                scoreGraphHandler();
+                possessionGraphHandler();
+                goalAccuracyGraphHandler();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
         } catch (Exception e){
         e.printStackTrace();
         }

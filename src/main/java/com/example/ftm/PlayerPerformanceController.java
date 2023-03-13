@@ -204,6 +204,12 @@ public class PlayerPerformanceController implements Initializable {
         playerTable.setItems(resultArray);
     }
 
+    @FXML
+    public void editSelectedPlayer(ActionEvent actionEvent) {
+
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources){
         try {
@@ -217,6 +223,4 @@ public class PlayerPerformanceController implements Initializable {
 
     }
 
-    public void editSelectedPlayer(ActionEvent actionEvent) {
-    }
 }

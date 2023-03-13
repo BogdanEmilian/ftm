@@ -142,16 +142,16 @@
                   <Font name="System Bold" size="22.0" />
                </font>
             </Label>
-            <Label fx:id="gameLabel1" alignment="CENTER" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel2" alignment="CENTER" layoutY="63.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel3" alignment="CENTER" layoutY="113.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel4" alignment="CENTER" layoutY="163.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel5" alignment="CENTER" layoutY="213.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel6" alignment="CENTER" layoutY="263.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel7" alignment="CENTER" layoutY="313.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel8" alignment="CENTER" layoutY="363.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel9" alignment="CENTER" layoutY="413.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
-            <Label fx:id="gameLabel10" alignment="CENTER" layoutY="463.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" />
+            <Label fx:id="gameLabel1" alignment="BASELINE_LEFT" contentDisplay="CENTER" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel2" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="63.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel3" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="113.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel4" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="163.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel5" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="213.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel6" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="263.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel7" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="313.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel8" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="363.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel9" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="413.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
+            <Label fx:id="gameLabel10" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutY="463.0" prefHeight="55.0" prefWidth="240.0" text="Insufficient data" wrapText="true" />
          </children>
       </VBox>
       <AnchorPane fx:id="panel1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
