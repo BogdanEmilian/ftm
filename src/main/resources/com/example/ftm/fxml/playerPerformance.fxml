@@ -44,23 +44,29 @@
             </children></AnchorPane>
       <TableView fx:id="playerTable" layoutX="60.0" layoutY="132.0" prefHeight="550.0" prefWidth="1130.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="5.0">
         <columns>
-          <TableColumn prefWidth="228.0" text="Name" />
-          <TableColumn minWidth="0.0" prefWidth="133.0" text="Free kicks accuracy" />
-            <TableColumn prefWidth="76.0" text="Injured" />
-            <TableColumn prefWidth="107.0" text="Yellow cards" />
-            <TableColumn prefWidth="83.0" text="Red Cards" />
-            <TableColumn prefWidth="129.0" text="Passing accuracy" />
-            <TableColumn prefWidth="147.0" text="Fouls commited" />
-            <TableColumn prefWidth="118.0" text="Goal accuracy" />
-            <TableColumn prefWidth="108.0" text="No. of goals" />
+          <TableColumn fx:id="playerName" prefWidth="254.0" text="Name" />
+          <TableColumn fx:id="playerFreeKicksScored" minWidth="0.0" prefWidth="107.0" text="Free kicks scored" />
+            <TableColumn fx:id="playerFreeKicksShot" minWidth="0.0" prefWidth="95.0" text="Free kicks shot" />
+            <TableColumn fx:id="playerInjured" prefWidth="67.0" text="Injured" />
+            <TableColumn fx:id="playerYCards" prefWidth="79.0" text="Yellow cards" />
+            <TableColumn fx:id="playerRCards" prefWidth="68.0" text="Red Cards" />
+            <TableColumn fx:id="playerPassAccuracy" prefWidth="110.0" text="Passing accuracy" />
+            <TableColumn fx:id="playerGoalAccuracy" prefWidth="91.0" text="Goal accuracy" />
+            <TableColumn fx:id="playerGoals" prefWidth="84.0" text="No. of goals" />
+            <TableColumn fx:id="playerFouls" prefWidth="174.0" text="Fouls commited" />
         </columns>
       </TableView>
-      <TextField fx:id="searchTextField" layoutX="65.0" layoutY="100.0" />
+      <TextField fx:id="searchTextField" layoutX="65.0" layoutY="100.0" onAction="#searchResult" />
       <Label layoutX="65.0" layoutY="70.0" text="Search:">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
+      <JFXButton fx:id="editButton" layoutX="1101.0" layoutY="78.0" onAction="#editSelectedPlayer" prefHeight="44.0" prefWidth="85.0" style="-fx-background-color: #cef542;" text="/ Edit">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </JFXButton>
         <AnchorPane fx:id="panel1" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
         <AnchorPane layoutX="10.0" layoutY="80.0" prefHeight="630.0" prefWidth="60.0" style="-fx-background-color: #c2c2c2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0">
             <children>

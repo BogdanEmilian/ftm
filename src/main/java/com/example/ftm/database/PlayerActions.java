@@ -9,15 +9,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerActions {
     private static final String ADD_QUERY = "insert into player (playerName, playerAge, playerPosition, playerHeight, playerWeight, playerValue, playerSalary, playerGoals, playerFreeKicksShot, playerFreeKicksScored, playerInjured, playerYCards, playerRCards, playerPassAccuracy, playerGoalAccuracy, playerFouls) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     private static final String DELETE_QUERY = "delete from player where playerName=? and playerPosition=?;";
     private static final String GET_QUERY = "select * from player where playerName=? and playerPosition=?;";
     private static final String GET_ALL_QUERY = "select * from player;";
-    private static final String EDIT_INFO_QUERY = "update player set playerName=?, playerAge=?, playerPosition=?, playerHeight=?, playerWeight=?, playerValue=?, playerSalary=? where playerName=? AND playerPosition=?;";
+    private static final String EDIT_INFO_QUERY = "update player set playerName=?, playerAge=?, playerPosition=?, playerHeight=?, playerWeight=?, playerValue=?, playerSalary=? where playerName=?;";
     private static final String EDIT_PERFORMANCE_QUERY = "update player set playerGoals=?, playerFreeKicksShot=?, playerFreeKicksScored=?, playerInjured=?, playerYCards=?, playerRCards=?, playerPassAccuracy=?, playerGoalAccuracy=?, playerFouls=? where playerName=? AND playerPosition=?;";
-
+    private static final String KEYWORD_INFO_QUERY = "select * from player where playerName like ? or playerAge like ? or playerPosition like ? or playerHeight like ? or playerWeight like ? or playerValue like ? or playerSalary like ?";
 
     public static void insertPlayer(Player player){
         try{
@@ -41,7 +43,6 @@ public class PlayerActions {
             st.setDouble(15, player.getPlayerGoalAccuracy());
             st.setInt(16, player.getPlayerFouls());
 
-            System.out.println("adding player with name " + player.getPlayerName());
             st.executeUpdate();
             System.out.println("adding player with name " + player.getPlayerName());
 
@@ -51,7 +52,7 @@ public class PlayerActions {
         }
     }
 
-    public static void editPlayerInfo(Player player, String playerName, Position playerPosition) {
+    public static void editPlayerInfo(Player player, String playerName) {
         try {
             Connection conn = DBConnect.connect();
             PreparedStatement st = conn.prepareStatement(EDIT_INFO_QUERY);
@@ -65,9 +66,9 @@ public class PlayerActions {
             st.setDouble(7, player.getPlayerSalary());
 
             st.setString(8, playerName);
-            st.setString(9, playerPosition.toString());
 
             st.executeUpdate();
+            System.out.println("Player edited");
 
         } catch (SQLException e) {
             System.out.println("Error updating the player with name " + player.getPlayerName());
@@ -154,37 +155,75 @@ public class PlayerActions {
     }
 
     public static ObservableList<Player> getAll() throws SQLException {
-        ObservableList<Player> players = FXCollections.observableArrayList();
+        List<Player> players = new ArrayList<>();
 
         Connection conn = DBConnect.connect();
         PreparedStatement st = conn.prepareStatement(GET_ALL_QUERY);
+
+        ResultSet rs = st.executeQuery();
+
+        while (rs.next()) {
+            Player newPlayer = new Player(
+                    rs.getString("playerName"),
+                    rs.getInt("playerAge"),
+                    Position.valueOf(rs.getString("playerPosition")),
+                    rs.getInt("playerHeight"),
+                    rs.getInt("playerWeight"),
+                    rs.getDouble("playerValue"),
+                    rs.getDouble("playerSalary"),
+                    rs.getInt("playerGoals"),
+                    rs.getInt("playerFreeKicksShot"),
+                    rs.getInt("playerFreeKicksScored"),
+                    rs.getBoolean("playerInjured"),
+                    rs.getInt("playerYCards"),
+                    rs.getInt("playerRCards"),
+                    rs.getDouble("playerPassAccuracy"),
+                    rs.getDouble("playerGoalAccuracy"),
+                    rs.getInt("playerFouls")
+            );
+
+            players.add(newPlayer);
+        }
+        return FXCollections.observableArrayList(players);
+    }
+
+    public static ObservableList<Player> getAllMatchingInfo(String keyword) throws SQLException {
+        List<Player> players = new ArrayList<>();
+
+        Connection conn = DBConnect.connect();
+        PreparedStatement st = conn.prepareStatement(KEYWORD_INFO_QUERY);
+
+        for (int i = 1; i <= 7; i++) {
+            st.setString(i, "%" + keyword + "%");
+        }
 
         ResultSet rs = st.executeQuery();
         Player player = new Player();
 
         while (rs.next()) {
 
-            player.setPlayerName(rs.getString("playerName"));
-            player.setPlayerAge(rs.getInt("playerAge"));
-            player.setPlayerPosition(Position.valueOf(rs.getString("playerPosition")));
-            player.setPlayerHeight(rs.getInt("playerHeight"));
-            player.setPlayerWeight(rs.getInt("playerWeight"));
-            player.setPlayerValue(rs.getDouble("playerValue"));
-            player.setPlayerSalary(rs.getDouble("playerSalary"));
-            player.setPlayerGoals(rs.getInt("playerGoals"));
-            player.setPlayerFreeKicksShot(rs.getInt("playerFreeKicksShot"));
-            player.setPlayerFreeKicksScored(rs.getInt("playerFreeKicksScored"));
-            player.setPlayerInjured(rs.getBoolean("playerInjured"));
-            player.setPlayerYCards(rs.getInt("playerYCards"));
-            player.setPlayerRCards(rs.getInt("playerRCards"));
-            player.setPlayerPassAccuracy(rs.getDouble("playerPassAccuracy"));
-            player.setPlayerGoalAccuracy(rs.getDouble("playerGoalAccuracy"));
-            player.setPlayerFouls(rs.getInt("playerFouls"));
-
-            players.add(player);
+            Player newPlayer = new Player(
+                    rs.getString("playerName"),
+                    rs.getInt("playerAge"),
+                    Position.valueOf(rs.getString("playerPosition")),
+                    rs.getInt("playerHeight"),
+                    rs.getInt("playerWeight"),
+                    rs.getDouble("playerValue"),
+                    rs.getDouble("playerSalary"),
+                    rs.getInt("playerGoals"),
+                    rs.getInt("playerFreeKicksShot"),
+                    rs.getInt("playerFreeKicksScored"),
+                    rs.getBoolean("playerInjured"),
+                    rs.getInt("playerYCards"),
+                    rs.getInt("playerRCards"),
+                    rs.getDouble("playerPassAccuracy"),
+                    rs.getDouble("playerGoalAccuracy"),
+                    rs.getInt("playerFouls")
+            );
+            players.add(newPlayer);
         }
 
-        return players;
+        return FXCollections.observableArrayList(players);
     }
 
 }
