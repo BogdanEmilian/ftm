@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="700.0" prefWidth="800.0" styleClass="linear-grad" stylesheets="@stylesheet/addPlayerWindow.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.AddGameController">
+   <children>
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="157.0" text="Opposing team name">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="opposingTeamName" prefWidth="172.0" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="94.0" text="Goals scored">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="goalsScored" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox layoutX="285.0" layoutY="10.0" prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="116.0" text="Goals received">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="goalsReceived" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="84.0" text="Game date">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="date" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="116.0" text="Ball possession">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="possession" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="185.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox layoutX="285.0" layoutY="10.0" prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="70.0" text="Corners">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="corners" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="105.0" prefHeight="100.0" prefWidth="200.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="72.0" text="Penalties">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="penalties" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="84.0" text="Free kicks">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="freeKicks" />
+                     </children>
+                  </VBox>
+                  <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox layoutX="285.0" layoutY="10.0" prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="113.0" text="Game duration">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="duration" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="299.0" prefHeight="100.0" prefWidth="200.0" />
+            <HBox layoutX="10.0" layoutY="410.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="72.0" text="Misses">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="misses" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <Label fx:id="status" alignment="CENTER" wrapText="true">
+                           <font>
+                              <Font name="System Bold Italic" size="20.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
+                  <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <ImageView fx:id="submitIcon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/submit.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label alignment="CENTER" layoutX="310.0" layoutY="14.0" prefHeight="35.0" prefWidth="180.0" text="Add a new game" AnchorPane.leftAnchor="310.0" AnchorPane.rightAnchor="310.0" AnchorPane.topAnchor="15.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

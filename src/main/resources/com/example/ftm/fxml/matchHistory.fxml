@@ -25,6 +25,11 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
+            <JFXButton fx:id="addButton" layoutX="726.0" layoutY="15.0" onAction="#addNewGame" prefHeight="44.0" prefWidth="220.0" style="-fx-background-color: #32a852;" text="+ Add a new game">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </JFXButton>
             </children></AnchorPane>
         <AnchorPane layoutY="70.0" prefHeight="630.0" prefWidth="60.0" style="-fx-background-color: #c2c2c2;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="70.0">
             <children>

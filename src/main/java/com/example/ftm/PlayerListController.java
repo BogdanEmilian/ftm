@@ -4,6 +4,7 @@ import com.example.ftm.database.PlayerActions;
 import com.example.ftm.entity.Player;
 import com.example.ftm.enumeration.Position;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -178,8 +179,8 @@ public class PlayerListController implements Initializable {
     @FXML
     void addNewPlayer(ActionEvent event) {
         try {
+            //Load the adding scene
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/addPlayer.fxml"));
-
             Parent root = (Parent) loader.load();
 
             //set the root on the new scene
@@ -203,6 +204,7 @@ public class PlayerListController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/editPlayer.fxml"));
             Parent root = (Parent) loader.load();
 
+            //Load the edit window with currently selected data for the object
             EditPlayerController editPlayerController = loader.getController();
             editPlayerController.initData(player);
 
@@ -229,9 +231,14 @@ public class PlayerListController implements Initializable {
     }
 
     @FXML
-    void searchPlayer(ActionEvent event) {
+    void searchPlayer(ActionEvent event) throws SQLException {
+        String keyword = searchTextField.getText();
 
+        ObservableList<Player> resultArray = FXCollections.observableArrayList(PlayerActions.getAllMatchingInfo(keyword));
+
+        playerTable.setItems(resultArray);
     }
+
     public void tableInit() throws SQLException {
         ObservableList<Player> resultArray = FXCollections.observableArrayList();
 

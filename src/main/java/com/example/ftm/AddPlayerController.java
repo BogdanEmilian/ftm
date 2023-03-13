@@ -14,7 +14,6 @@ import javafx.scene.paint.Color;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.ResourceBundle;
-import java.util.concurrent.TimeUnit;
 
 public class AddPlayerController implements Initializable {
 
@@ -89,6 +88,7 @@ public class AddPlayerController implements Initializable {
                 status.setText("Please fill in all the fields!");
                 status.setTextFill(Color.color(1, 0, 0));
             } else {
+                addDataFromFields();
                 PlayerActions.insertPlayer(player);
 
                 //Prompts the user with a confirmation
