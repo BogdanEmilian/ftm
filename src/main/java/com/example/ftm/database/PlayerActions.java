@@ -15,7 +15,6 @@ import java.util.List;
 public class PlayerActions {
     private static final String ADD_QUERY = "insert into player (playerName, playerAge, playerPosition, playerHeight, playerWeight, playerValue, playerSalary, playerGoals, playerFreeKicksShot, playerFreeKicksScored, playerInjured, playerYCards, playerRCards, playerPassAccuracy, playerGoalAccuracy, playerFouls) values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);";
     private static final String DELETE_QUERY = "delete from player where playerName=? and playerPosition=?;";
-    private static final String GET_QUERY = "select * from player where playerName=? and playerPosition=?;";
     private static final String GET_ALL_QUERY = "select * from player;";
     private static final String EDIT_INFO_QUERY = "update player set playerName=?, playerAge=?, playerPosition=?, playerHeight=?, playerWeight=?, playerValue=?, playerSalary=? where playerName=?;";
     private static final String EDIT_PERFORMANCE_QUERY = "update player set playerGoals=?, playerFreeKicksShot=?, playerFreeKicksScored=?, playerInjured=?, playerYCards=?, playerRCards=?, playerPassAccuracy=?, playerGoalAccuracy=?, playerFouls=? where playerName=? AND playerPosition=?;";
@@ -116,42 +115,6 @@ public class PlayerActions {
             e.printStackTrace();
         }
 
-    }
-
-    public static Player getPlayer(String playerName, Position playerPosition) throws SQLException {
-        Connection conn = DBConnect.connect();
-        PreparedStatement st = conn.prepareStatement(GET_QUERY);
-
-        st.setString(1, "John Doe");
-
-        ResultSet rs = st.executeQuery();
-        Player player = new Player();
-
-        if (rs.next()) {
-
-            player.setPlayerName(rs.getString("playerName"));
-            player.setPlayerAge(rs.getInt("playerAge"));
-            player.setPlayerPosition(Position.valueOf(rs.getString("playerPosition")));
-            player.setPlayerHeight(rs.getInt("playerHeight"));
-            player.setPlayerWeight(rs.getInt("playerWeight"));
-            player.setPlayerValue(rs.getDouble("playerValue"));
-            player.setPlayerSalary(rs.getDouble("playerSalary"));
-            player.setPlayerGoals(rs.getInt("playerGoals"));
-            player.setPlayerFreeKicksShot(rs.getInt("playerFreeKicksShot"));
-            player.setPlayerFreeKicksScored(rs.getInt("playerFreeKicksScored"));
-            player.setPlayerInjured(rs.getBoolean("playerInjured"));
-            player.setPlayerYCards(rs.getInt("playerYCards"));
-            player.setPlayerRCards(rs.getInt("playerRCards"));
-            player.setPlayerPassAccuracy(rs.getDouble("playerPassAccuracy"));
-            player.setPlayerGoalAccuracy(rs.getDouble("playerGoalAccuracy"));
-            player.setPlayerFouls(rs.getInt("playerFouls"));
-
-        } else {
-            rs.close();
-            st.close();
-        }
-
-        return player;
     }
 
     public static ObservableList<Player> getAll() throws SQLException {
