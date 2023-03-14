@@ -36,7 +36,7 @@
                   <FontIcon iconLiteral="bx-user" iconSize="60" wrappingWidth="13.0" />
                   <FontIcon iconLiteral="bxs-user-detail" iconSize="60" wrappingWidth="13.0" />
                   <FontIcon iconLiteral="bx-history" iconSize="60" wrappingWidth="13.0" />
-                  <FontIcon iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
+                  <FontIcon fill="#55b7e8" iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
                      <VBox.margin>
                         <Insets top="150.0" />
                      </VBox.margin></FontIcon>
@@ -97,7 +97,7 @@
                   <FontIcon iconLiteral="bx-user" iconSize="60" wrappingWidth="13.0" />
                   <FontIcon iconLiteral="bxs-user-detail" iconSize="60" wrappingWidth="13.0" />
                   <FontIcon iconLiteral="bx-history" iconSize="60" wrappingWidth="13.0" />
-                  <FontIcon iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
+                  <FontIcon fill="#55b7e8" iconLiteral="bxs-file-export" iconSize="60" wrappingWidth="13.0">
                      <VBox.margin>
                         <Insets top="150.0" />
                      </VBox.margin>
@@ -130,7 +130,7 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="exportTab" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="250.0" onAction="#switchToExport" prefHeight="60.0" prefWidth="245.0" text="Export Data">
+                  <JFXButton fx:id="exportTab" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="250.0" onAction="#switchToExport" prefHeight="60.0" prefWidth="245.0" style="-fx-background-color: #55b7e8;" text="Export Data">
                      <font>
                         <Font name="System Bold" size="17.0" />
                      </font>

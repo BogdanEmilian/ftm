@@ -14,14 +14,20 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.*;
@@ -65,30 +71,122 @@ public class PDFExportController implements Initializable {
     @FXML
     private JFXButton playersTab;
 
-    @FXML
-    void switchToDashboard(ActionEvent event) {
 
+    @FXML
+    public void switchToDashboard(ActionEvent event) throws IOException {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/dashboard.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void switchToExport(ActionEvent event) {
+    public void switchToPlayers(ActionEvent event) throws IOException{
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/playerList.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void switchToHistory(ActionEvent event) {
+    public void switchToPerformance(ActionEvent event) throws IOException{
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/playerPerformance.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void switchToPerformance(ActionEvent event) {
+    public void switchToHistory(ActionEvent event) throws IOException{
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/matchHistory.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
-    void switchToPlayers(ActionEvent event) {
+    public void switchToExport(ActionEvent event) throws IOException{
 
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/pdfexport.fxml"));
+
+            Parent root = (Parent) loader.load();
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+
+            //close old stage
+            ((Node)(event.getSource())).getScene().getWindow().hide();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     ChoiceBox<String> filterChoiceBox;
