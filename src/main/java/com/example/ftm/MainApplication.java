@@ -1,8 +1,5 @@
 package com.example.ftm;
 
-import com.example.ftm.database.PlayerActions;
-import com.example.ftm.entity.Player;
-import com.example.ftm.enumeration.Position;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

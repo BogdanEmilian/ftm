@@ -18,6 +18,7 @@ public class GameActions {
             Connection conn = DBConnect.connect();
             PreparedStatement st = conn.prepareStatement(ADD_QUERY);
 
+            //Prepare the query with given data
             st.setString(1, game.getOpposingTeamName());
             st.setInt(2, game.getGoalsScored());
             st.setInt(3, game.getGoalsReceived());
@@ -46,6 +47,7 @@ public class GameActions {
 
         ResultSet rs = st.executeQuery();
 
+        //Parse the result set from the database and populate the in-memory list
         while (rs.next()){
             Game game = new Game(rs.getString("opposingTeamName"),
                     rs.getInt("goalsScored"),

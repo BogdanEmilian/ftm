@@ -464,9 +464,11 @@ public class MatchHistoryController implements Initializable {
     }
 
     public void fetchData() throws SQLException {
+        //Fetch data from DB
         List<Game> gameList = GameActions.getGames(9);
 
         try {
+            //Prints fetched data
             enemyTeam1.setText(gameList.get(0).getOpposingTeamName());
             score1.setText(gameList.get(0).getGoalsScored() + " - " + gameList.get(0).getGoalsReceived());
             date1.setText(gameList.get(0).getGameDate());
@@ -552,6 +554,7 @@ public class MatchHistoryController implements Initializable {
             System.out.println("Insufficient data!");
         }
 
+        //Compute the possession average
         double ally = gameList.stream()
                 .mapToDouble(Game::getPossession)
                 .sum();
@@ -564,6 +567,8 @@ public class MatchHistoryController implements Initializable {
 
         possessionPieChart.getData().addAll(possessionPieChartData);
 
+
+        //Compute the average score lead
         double allyScore = gameList.stream()
                 .mapToDouble(Game::getGoalsScored)
                 .sum();

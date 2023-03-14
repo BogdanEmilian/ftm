@@ -63,6 +63,7 @@ public class AddPlayerController implements Initializable {
                 status.setTextFill(Color.color(1, 0, 0));
             } else {
 
+                //Create object in-memory to pass to the insert query
                 player.setPlayerName(nameTextField.getText());
                 player.setPlayerAge(Integer.parseInt(ageTextField.getText()));
                 player.setPlayerPosition(positionChoiceBox.getValue());

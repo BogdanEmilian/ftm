@@ -2,7 +2,6 @@ package com.example.ftm;
 
 import com.example.ftm.database.PlayerActions;
 import com.example.ftm.entity.Player;
-import com.example.ftm.enumeration.Position;
 import com.jfoenix.controls.JFXButton;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -177,6 +176,7 @@ public class PlayerPerformanceController implements Initializable {
     @FXML
     private TableColumn<Player, Integer> playerYCards;
 
+    //On Enter, search for given keyword in the text field
     @FXML
     void searchResult(ActionEvent event) throws SQLException {
         String keyword = searchTextField.getText();

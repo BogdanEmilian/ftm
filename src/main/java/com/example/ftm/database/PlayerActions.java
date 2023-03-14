@@ -25,6 +25,7 @@ public class PlayerActions {
             Connection conn = DBConnect.connect();
             PreparedStatement st = conn.prepareStatement(ADD_QUERY);
 
+            //Prepare the query with given data
             st.setString(1, player.getPlayerName());
             st.setInt(2, player.getPlayerAge());
             st.setString(3, player.getPlayerPosition().toString());
@@ -56,6 +57,7 @@ public class PlayerActions {
             Connection conn = DBConnect.connect();
             PreparedStatement st = conn.prepareStatement(EDIT_INFO_QUERY);
 
+            //Parse the result set from the database and populate the in-memory list
             st.setString(1, player.getPlayerName());
             st.setInt(2, player.getPlayerAge());
             st.setString(3, player.getPlayerPosition().toString());
@@ -80,6 +82,7 @@ public class PlayerActions {
             Connection conn = DBConnect.connect();
             PreparedStatement st = conn.prepareStatement(EDIT_PERFORMANCE_QUERY);
 
+            //Parse the result set from the database and populate the in-memory list
             st.setInt(1, player.getPlayerGoals());
             st.setInt(2, player.getPlayerFreeKicksShot());
             st.setInt(3, player.getPlayerFreeKicksScored());
@@ -126,22 +129,23 @@ public class PlayerActions {
 
         while (rs.next()) {
             Player newPlayer = new Player(
-                    rs.getString("playerName"),
-                    rs.getInt("playerAge"),
-                    Position.valueOf(rs.getString("playerPosition")),
-                    rs.getInt("playerHeight"),
-                    rs.getInt("playerWeight"),
-                    rs.getDouble("playerValue"),
-                    rs.getDouble("playerSalary"),
-                    rs.getInt("playerGoals"),
-                    rs.getInt("playerFreeKicksShot"),
-                    rs.getInt("playerFreeKicksScored"),
-                    rs.getBoolean("playerInjured"),
-                    rs.getInt("playerYCards"),
-                    rs.getInt("playerRCards"),
-                    rs.getDouble("playerPassAccuracy"),
-                    rs.getDouble("playerGoalAccuracy"),
-                    rs.getInt("playerFouls")
+                //Create an object with the retrieved data
+                rs.getString("playerName"),
+                rs.getInt("playerAge"),
+                Position.valueOf(rs.getString("playerPosition")),
+                rs.getInt("playerHeight"),
+                rs.getInt("playerWeight"),
+                rs.getDouble("playerValue"),
+                rs.getDouble("playerSalary"),
+                rs.getInt("playerGoals"),
+                rs.getInt("playerFreeKicksShot"),
+                rs.getInt("playerFreeKicksScored"),
+                rs.getBoolean("playerInjured"),
+                rs.getInt("playerYCards"),
+                rs.getInt("playerRCards"),
+                rs.getDouble("playerPassAccuracy"),
+                rs.getDouble("playerGoalAccuracy"),
+                rs.getInt("playerFouls")
             );
 
             players.add(newPlayer);
@@ -165,6 +169,8 @@ public class PlayerActions {
         while (rs.next()) {
 
             Player newPlayer = new Player(
+
+                    //Create an object with the retrieved data
                     rs.getString("playerName"),
                     rs.getInt("playerAge"),
                     Position.valueOf(rs.getString("playerPosition")),
