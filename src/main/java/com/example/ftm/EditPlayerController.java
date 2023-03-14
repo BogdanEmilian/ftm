@@ -69,7 +69,7 @@ public class EditPlayerController implements Initializable {
 
     public void handleSubmit(){
 
-        //Ensure nothing
+        //Ensure nothing is missing
         editIcon.setOnMouseClicked(event ->{
             if( nameTextField.getText().isEmpty() ||
                     ageTextField.getText().isEmpty() ||
