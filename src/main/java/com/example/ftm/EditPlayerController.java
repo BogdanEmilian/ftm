@@ -67,7 +67,7 @@ public class EditPlayerController implements Initializable {
         salaryTextField.setText(player.getPlayerSalary().toString());
     }
 
-    public void handleSubmit(String playerName){
+    public void handleSubmit(){
 
         //Ensure nothing
         editIcon.setOnMouseClicked(event ->{
@@ -95,7 +95,7 @@ public class EditPlayerController implements Initializable {
                 player.setPlayerSalary(Double.parseDouble(salaryTextField.getText()));
 
                 //Prompts the user with a confirmation of modifications
-                PlayerActions.editPlayerInfo(player, playerName);
+                PlayerActions.editPlayerInfo(player, player.getPlayerName());
                 status.setText("The player details have been edited!");
                 status.setTextFill(Color.color(0, 1, 0));
             }
@@ -104,9 +104,10 @@ public class EditPlayerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources){
+
         try {
             initWindow();
-            handleSubmit(player.getPlayerName());
+            handleSubmit();
         }
         catch (Exception e){
             e.printStackTrace();

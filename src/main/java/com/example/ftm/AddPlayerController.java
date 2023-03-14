@@ -17,6 +17,8 @@ import java.util.ResourceBundle;
 
 public class AddPlayerController implements Initializable {
 
+    Player player = new Player();
+
     @FXML
     private TextField ageTextField;
 
@@ -44,35 +46,7 @@ public class AddPlayerController implements Initializable {
     @FXML
     private Label status;
 
-    public void addDataFromFields(){
-        Player player = new Player();
-
-        player.setPlayerName(nameTextField.getText());
-        player.setPlayerAge(Integer.parseInt(ageTextField.getText()));
-        player.setPlayerPosition(positionChoiceBox.getValue());
-        player.setPlayerHeight(Integer.parseInt(heightTextField.getText()));
-        player.setPlayerWeight(Integer.parseInt(weightTextField.getText()));
-        player.setPlayerValue(Double.parseDouble(valueTextField.getText()));
-        player.setPlayerSalary(Double.parseDouble(salaryTextField.getText()));
-
-        //dummy data for performance
-        player.setPlayerGoals(0);
-        player.setPlayerFreeKicksShot(0);
-        player.setPlayerFreeKicksScored(0);
-        player.setPlayerInjured(false);
-        player.setPlayerYCards(0);
-        player.setPlayerRCards(0);
-        player.setPlayerPassAccuracy(0.0);
-        player.setPlayerGoalAccuracy(0.0);
-        player.setPlayerFouls(0);
-
-        handleSubmit(player);
-
-        status.setText("New player has been added successfully!");
-        status.setTextFill(Color.color(0, 1, 0));
-    }
-
-    public void handleSubmit(Player player){
+    public void handleSubmit(){
 
         //Verify each field has been filled in
         submitIcon.setOnMouseClicked(event ->{
@@ -88,7 +62,26 @@ public class AddPlayerController implements Initializable {
                 status.setText("Please fill in all the fields!");
                 status.setTextFill(Color.color(1, 0, 0));
             } else {
-                addDataFromFields();
+
+                player.setPlayerName(nameTextField.getText());
+                player.setPlayerAge(Integer.parseInt(ageTextField.getText()));
+                player.setPlayerPosition(positionChoiceBox.getValue());
+                player.setPlayerHeight(Integer.parseInt(heightTextField.getText()));
+                player.setPlayerWeight(Integer.parseInt(weightTextField.getText()));
+                player.setPlayerValue(Double.parseDouble(valueTextField.getText()));
+                player.setPlayerSalary(Double.parseDouble(salaryTextField.getText()));
+
+                //dummy data for performance
+                player.setPlayerGoals(0);
+                player.setPlayerFreeKicksShot(0);
+                player.setPlayerFreeKicksScored(0);
+                player.setPlayerInjured(false);
+                player.setPlayerYCards(0);
+                player.setPlayerRCards(0);
+                player.setPlayerPassAccuracy(0.0);
+                player.setPlayerGoalAccuracy(0.0);
+                player.setPlayerFouls(0);
+
                 PlayerActions.insertPlayer(player);
 
                 //Prompts the user with a confirmation
@@ -106,9 +99,7 @@ public class AddPlayerController implements Initializable {
     public void initialize(URL location, ResourceBundle resources){
         try {
             initWindow();
-            submitIcon.setOnMouseClicked(event -> {
-                addDataFromFields();
-            });
+            handleSubmit();
         }
         catch (Exception e){
             e.printStackTrace();

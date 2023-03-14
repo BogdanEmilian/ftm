@@ -51,6 +51,7 @@ public class AddGameController implements Initializable {
     private ImageView submitIcon;
 
     public void handleSubmit() {
+
         //Verify each field has been filled in
         if (date.getText().isEmpty() ||
                 opposingTeamName.getText().isEmpty() ||
