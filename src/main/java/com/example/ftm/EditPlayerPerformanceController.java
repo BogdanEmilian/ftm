@@ -2,7 +2,6 @@ package com.example.ftm;
 
 import com.example.ftm.database.PlayerActions;
 import com.example.ftm.entity.Player;
-import com.example.ftm.enumeration.Position;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
@@ -12,7 +11,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 
 import java.net.URL;
-import java.util.Arrays;
 import java.util.ResourceBundle;
 
 public class EditPlayerPerformanceController implements Initializable {

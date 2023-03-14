@@ -4,7 +4,6 @@ import com.example.ftm.database.PlayerActions;
 import com.example.ftm.entity.Player;
 import com.example.ftm.enumeration.Position;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -230,6 +229,7 @@ public class PlayerListController implements Initializable {
         }
     }
 
+    //On Enter, search for given keyword in the text field
     @FXML
     void searchPlayer(ActionEvent event) throws SQLException {
         String keyword = searchTextField.getText();

@@ -3,10 +3,6 @@ package com.example.ftm;
 import com.example.ftm.database.GameActions;
 import com.example.ftm.entity.Game;
 import com.jfoenix.controls.JFXButton;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import javafx.animation.FadeTransition;
-import javafx.animation.TranslateTransition;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +17,6 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.net.URL;
@@ -260,11 +255,10 @@ public class DashboardController implements Initializable {
             System.out.println("Insufficient data!");
         }
 
-        //init graphs
+        //Init graphs
         scoreLeadsGraph.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent");
         possessionGraph.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent");
         goalAccuracyGraph.lookup(".chart-plot-background").setStyle("-fx-background-color: transparent");
-
     }
 
     @Override
@@ -279,6 +273,7 @@ public class DashboardController implements Initializable {
         MenuHandler menuHandler = new MenuHandler(panel1, panel2, menu);
         menuHandler.menuInteractionHandler();
 
+        //Refreshes the data after changing the option
         lastGamesChoice.setOnAction(event -> {
 
             try {

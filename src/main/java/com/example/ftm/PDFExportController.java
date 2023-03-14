@@ -3,15 +3,12 @@ package com.example.ftm;
 import com.example.ftm.database.PlayerActions;
 import com.example.ftm.entity.Player;
 import com.itextpdf.text.Document;
-import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,11 +22,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.SQLException;
 import java.util.*;
 
 public class PDFExportController implements Initializable {
@@ -197,8 +192,7 @@ public class PDFExportController implements Initializable {
 
         if(filterChoiceBox.getValue().equals("Player info")){
             tableCol = 7;
-        }
-        else{
+        } else {
             tableCol = 10;
         }
 
@@ -254,6 +248,7 @@ public class PDFExportController implements Initializable {
             }else {
                 PdfPTable table = new PdfPTable(tableCol);
 
+                //Adds the headers and creates each column
                 PdfPCell c1 = new PdfPCell(new Phrase("Name"));
                 table.addCell(c1);
                 PdfPCell c2 = new PdfPCell(new Phrase("Free kicks scored"));
@@ -279,6 +274,7 @@ public class PDFExportController implements Initializable {
 
                 List<Player> playerList = new ArrayList<>(PlayerActions.getAll());
 
+                //Populates table cells with data
                 for (Player player : playerList) {
                     table.addCell(player.getPlayerName());
                     table.addCell(player.getPlayerFreeKicksScored().toString());
@@ -296,8 +292,7 @@ public class PDFExportController implements Initializable {
             }
             document.close();
             System.out.println(path);
-
-        }catch (Exception e){
+        } catch (Exception e){
             e.printStackTrace();
         }
     }
@@ -363,8 +358,10 @@ public class PDFExportController implements Initializable {
     public List<Player> getBestPlayerComp(List<Player> allPlayers) {
         List<Player> resultList = new ArrayList<>();
 
+        //Links the players to a value that is going to be used for sorting them in the list
         HashMap<Player, Double> valueMap = new HashMap<>();
 
+        //Adds a weight to the performance data in order to create a value for ordering
         for (Player player : allPlayers) {
             double value = player.getPlayerGoals() * 2
                     + player.getPlayerFreeKicksScored() * 4

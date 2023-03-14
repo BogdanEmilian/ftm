@@ -21,7 +21,7 @@ public class MenuHandler {
         this.menu = menu;
     }
 
-    //handle menu interaction across all application
+    //Handle menu interaction across all application
     public void menuInteractionHandler(){
         panel1.setVisible(false);
 

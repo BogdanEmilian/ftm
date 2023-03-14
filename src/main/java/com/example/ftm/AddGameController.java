@@ -70,6 +70,7 @@ public class AddGameController implements Initializable {
         } else {
             Game game = new Game();
 
+            //Create object in-memory to pass to the insert query
             game.setGameDate(date.getText());
             game.setOpposingTeamName(opposingTeamName.getText());
             game.setGoalsScored(Integer.parseInt(goalsScored.getText()));
@@ -92,6 +93,8 @@ public class AddGameController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources){
         try {
+
+            //Wait for the submit icon to be clicked
             submitIcon.setOnMouseClicked(event -> {
                 handleSubmit();
             });
