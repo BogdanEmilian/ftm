@@ -17,7 +17,7 @@ public class PlayerActions {
     private static final String DELETE_QUERY = "delete from player where playerName=? and playerPosition=?;";
     private static final String GET_ALL_QUERY = "select * from player;";
     private static final String EDIT_INFO_QUERY = "update player set playerName=?, playerAge=?, playerPosition=?, playerHeight=?, playerWeight=?, playerValue=?, playerSalary=? where playerName=?;";
-    private static final String EDIT_PERFORMANCE_QUERY = "update player set playerGoals=?, playerFreeKicksShot=?, playerFreeKicksScored=?, playerInjured=?, playerYCards=?, playerRCards=?, playerPassAccuracy=?, playerGoalAccuracy=?, playerFouls=? where playerName=? AND playerPosition=?;";
+    private static final String EDIT_PERFORMANCE_QUERY = "update player set playerGoals=?, playerFreeKicksShot=?, playerFreeKicksScored=?, playerInjured=?, playerYCards=?, playerRCards=?, playerPassAccuracy=?, playerGoalAccuracy=?, playerFouls=? where playerName=?;";
     private static final String KEYWORD_INFO_QUERY = "select * from player where playerName like ? or playerAge like ? or playerPosition like ? or playerHeight like ? or playerWeight like ? or playerValue like ? or playerSalary like ?";
 
     public static void insertPlayer(Player player){
@@ -75,7 +75,7 @@ public class PlayerActions {
         }
     }
 
-    public static void editPlayerPerformance(Player player, String playerName, Position playerPosition){
+    public static void editPlayerPerformance(Player player, String playerName){
         try {
             Connection conn = DBConnect.connect();
             PreparedStatement st = conn.prepareStatement(EDIT_PERFORMANCE_QUERY);
@@ -91,7 +91,6 @@ public class PlayerActions {
             st.setInt(9, player.getPlayerFouls());
 
             st.setString(10, playerName);
-            st.setString(11, playerPosition.toString());
 
             st.executeUpdate();
 
