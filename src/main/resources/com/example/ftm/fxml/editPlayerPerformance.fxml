@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="800.0" styleClass="linear-grad" stylesheets="@stylesheet/addPlayerWindow.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.EditPlayerController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="linear-grad" stylesheets="@stylesheet/addPlayerWindow.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.EditPlayerPerformanceController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
          <children>
@@ -19,34 +19,36 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="56.0" text="Name">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="128.0" text="Free kicks scored">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="nameTextField" prefWidth="172.0" />
+                        <TextField fx:id="freeKicksScoredField" prefWidth="172.0" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" />
                   <VBox prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="41.0" text="Age">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="110.0" text="Free kicks shot">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="ageTextField" />
+                        <TextField fx:id="freeKicksShotField" />
                      </children>
                   </VBox>
                   <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
                   <VBox prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="73.0" text="Position">
+                        <CheckBox fx:id="playerInjuredCheckbox" mnemonicParsing="false" text="Injured">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
-                        </Label>
-                        <ChoiceBox fx:id="positionChoiceBox" prefWidth="150.0" />
+                           <VBox.margin>
+                              <Insets top="35.0" />
+                           </VBox.margin>
+                        </CheckBox>
                      </children>
                   </VBox>
                </children>
@@ -56,36 +58,34 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="56.0" text="Height">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="97.0" text="Yellow cards">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="heightTextField" />
+                        <TextField fx:id="ycardsField" />
                      </children>
                   </VBox>
                   <VBox layoutX="210.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
                   <VBox prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="56.0" text="Weight">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="78.0" text="Red cards">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="weightTextField" />
+                        <TextField fx:id="rcardsField" />
                      </children>
                   </VBox>
                   <VBox layoutX="185.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
-                  <VBox alignment="CENTER" layoutX="460.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0">
+                  <VBox layoutX="285.0" layoutY="10.0" prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label fx:id="status" alignment="CENTER" wrapText="true">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="134.0" text="Number of goals">
                            <font>
-                              <Font name="System Bold Italic" size="20.0" />
+                              <Font name="System Bold" size="15.0" />
                            </font>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
                         </Label>
+                        <TextField fx:id="goalsField" />
                      </children>
                   </VBox>
                </children>
@@ -95,40 +95,63 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="48.0" text="Value">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="130.0" text="Passing accuracy">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="valueTextField" />
+                        <TextField fx:id="passingAccuracyField" />
                      </children>
                   </VBox>
                   <VBox prefHeight="200.0" prefWidth="100.0" />
                   <VBox prefHeight="200.0" prefWidth="175.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="48.0" text="Salary">
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="105.0" text="Goal accuracy">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="salaryTextField" />
+                        <TextField fx:id="goalAccuracyField" />
                      </children>
                   </VBox>
                   <VBox layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" />
+                  <VBox layoutX="285.0" layoutY="10.0" prefHeight="200.0" prefWidth="175.0">
+                     <children>
+                        <Label alignment="CENTER" prefHeight="35.0" prefWidth="120.0" text="Fouls commited">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="foulsField" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox layoutX="10.0" layoutY="232.0" prefHeight="100.0" prefWidth="200.0" />
+            <HBox layoutX="10.0" layoutY="410.0" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="350.0" />
                   <VBox prefHeight="200.0" prefWidth="100.0">
                      <children>
                         <ImageView fx:id="editIcon" fitHeight="70.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../images/edit.png" />
                            </image>
+                           <VBox.margin>
+                              <Insets bottom="20.0" top="20.0" />
+                           </VBox.margin>
                         </ImageView>
                      </children>
                   </VBox>
+                  <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="200.0" prefWidth="350.0">
+                     <children>
+                        <Label fx:id="status" />
+                     </children></VBox>
                </children>
             </HBox>
          </children>
       </VBox>
-      <Label fx:id="editPlayerName" alignment="CENTER" layoutX="183.0" layoutY="14.0" prefHeight="35.0" prefWidth="434.0" text="Edit player" AnchorPane.leftAnchor="183.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="14.0">
+      <Label fx:id="pageLabel" alignment="CENTER" layoutX="183.0" layoutY="14.0" prefHeight="35.0" prefWidth="434.0" text="Edit player performance" AnchorPane.leftAnchor="183.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="14.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

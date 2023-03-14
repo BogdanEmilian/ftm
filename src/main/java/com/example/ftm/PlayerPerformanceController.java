@@ -56,13 +56,6 @@ public class PlayerPerformanceController implements Initializable {
     private TextField searchTextField;
 
     @FXML
-    void searchResult(ActionEvent event) throws SQLException {
-        searchTextField.getText();
-
-        tableInit();
-    }
-
-    @FXML
     public void switchToDashboard(ActionEvent event) throws IOException {
 
         try {
@@ -184,6 +177,15 @@ public class PlayerPerformanceController implements Initializable {
     @FXML
     private TableColumn<Player, Integer> playerYCards;
 
+    @FXML
+    void searchResult(ActionEvent event) throws SQLException {
+        String keyword = searchTextField.getText();
+
+        ObservableList<Player> resultArray = FXCollections.observableArrayList(PlayerActions.getAllMatchingInfo(keyword));
+
+        playerTable.setItems(resultArray);
+    }
+
     public void tableInit() throws SQLException {
         ObservableList<Player> resultArray = FXCollections.observableArrayList();
 
@@ -206,7 +208,27 @@ public class PlayerPerformanceController implements Initializable {
 
     @FXML
     public void editSelectedPlayer(ActionEvent actionEvent) {
+        Player player = playerTable.getSelectionModel().getSelectedItem();
 
+        try {
+            //Load the edit scene
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("fxml/editPlayerPerformance.fxml"));
+            Parent root = (Parent) loader.load();
+
+            //Load the edit window with currently selected data for the object
+            EditPlayerPerformanceController editPlayerPerformanceController = loader.getController();
+            editPlayerPerformanceController.initData(player);
+
+            //set the root on the new scene
+            Scene scene = new Scene(root);
+            Stage stage = new Stage();
+
+            //display new stage
+            stage.setScene(scene);
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
