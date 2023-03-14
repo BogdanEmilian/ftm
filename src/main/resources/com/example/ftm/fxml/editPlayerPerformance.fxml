@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="linear-grad" stylesheets="@stylesheet/addPlayerWindow.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.EditPlayerPerformanceController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" styleClass="linear-grad" stylesheets="@stylesheet/addPlayerWindow.css" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ftm.EditPlayerPerformanceController">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="60.0">
          <children>
